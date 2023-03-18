@@ -1,5 +1,8 @@
 name: Deploy AWS Lightsail Container
 description: Deploy container to AWS Lightsail Container Service
+branding:
+  icon: upload-cloud
+  color: orange
 
 inputs:
   image-name:

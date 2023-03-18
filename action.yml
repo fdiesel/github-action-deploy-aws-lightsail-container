@@ -30,11 +30,10 @@ runs:
 
   steps:
 
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v1
+    - uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ inputs.aws-access-key-id }}
-        aws-secret-access-key: ${{ inputs.aws-secret-access-key }}
+        aws-secret-access-key: ${{ inputs.aws-access-key }}
         aws-region: ${{ inputs.aws-region }}
 
     - name: Install AWS Lightsail plugin

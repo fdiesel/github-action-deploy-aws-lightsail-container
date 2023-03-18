@@ -1,0 +1,22 @@
+name: Release
+
+on:
+  push:
+    branches: main
+
+jobs:
+
+  release:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Release
+        uses: fdiesel/github-action-node-release@v3.3.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          prefix: v

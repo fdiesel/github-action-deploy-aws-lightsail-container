@@ -48,7 +48,7 @@ runs:
 
     - name: Write config to file
       shell: bash
-      run: echo ${{ inputs.aws-lightsail-service-config }} > aws_lightsail_service_config.json
+      run: echo '${{ inputs.aws-lightsail-service-config }}' > aws_lightsail_service_config.json
 
     - name: Deploy container on AWS Lightsail
       shell: bash

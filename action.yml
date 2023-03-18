@@ -48,4 +48,4 @@ runs:
 
     - name: Deploy container on AWS Lightsail
       shell: bash
-      run: aws lightsail create-container-service-deployment --region ${{ inputs.aws-region }} --cli-input-json '${{ inputs.aws-lightsail-service-configuration }}'
+      run: aws lightsail create-container-service-deployment --region ${{ inputs.aws-region }} --cli-input-json '$(echo ${{ inputs.aws-lightsail-service-configuration }})'

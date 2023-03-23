@@ -50,7 +50,7 @@ runs:
       run: |
         aws lightsail get-container-images --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --output text >> get-container-images.txt
         grep -Eo ":${{ inputs.aws-lightsail-service }}\.[a-zA-Z\-]+\.\d+" get-container-images.txt >> container-images.txt
-        while read line ; do delete-container-image --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --image $line ; done < container-images.txt
+#        while read line ; do delete-container-image --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --image $line ; done < container-images.txt
 
 #    - name: Publish image to AWS Lightsail
 #      shell: bash

@@ -23,4 +23,5 @@ Deploy container to AWS Lightsail
         aws-access-key: ${{ secrets.AWS_ACCESS_KEY }}
         aws-lightsail-service: ${{ secrets.AWS_LIGHTSAIL_SERVICE }}
         aws-lightsail-service-config: ${{ secrets.AWS_LIGHTSAIL_SERVICE_CONFIG }}
+        aws-lightsail-clear-images: false
 ```

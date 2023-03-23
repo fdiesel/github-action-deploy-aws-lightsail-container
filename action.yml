@@ -48,7 +48,7 @@ runs:
     - name: Clear Container Images
       shell: bash
       run: |
-        aws lightsail get-container-images --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --output text | grep -Eo ":${{ inputs.aws-lightsail-service }}[\.a-zA-Z-]+\d+" -1 | xargs -L1 echo
+        aws lightsail get-container-images --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --output text | grep -Eo ":${{ inputs.aws-lightsail-service }}[\.a-zA-Z-]+\d+" -1 | while read line ; do echo $line ; done
 
 #    - name: Publish image to AWS Lightsail
 #      shell: bash

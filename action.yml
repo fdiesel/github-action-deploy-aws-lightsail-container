@@ -26,6 +26,10 @@ inputs:
   aws-lightsail-service-config:
     description: AWS Lightsail --cli-input-json service configuration
     required: true
+  aws-lightsail-clear-images:
+    description: AWS Lightsail delete unused images
+    default: "false"
+    required: false
 
 runs:
 
@@ -46,6 +50,7 @@ runs:
         sudo chmod +x /usr/local/bin/lightsailctl
 
     - name: Clear Container Images
+      if: ${{ always && inputs.aws-lightsail-clear-images == 'true' }}
       shell: bash
       run: |
         AWS_IMAGES=$(aws lightsail get-container-images --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --output text)

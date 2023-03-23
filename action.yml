@@ -49,14 +49,14 @@ runs:
       shell: bash
       run: |
         echo 'IMAGES=$(aws lightsail get-container-images --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --output text | grep -Eo ":${{ inputs.aws-lightsail-service }}\.${{ inputs.image-name }}\.\d+")' >> $GITHUB_ENV
-        echo $IMAGES
+        echo "$IMAGES"
         FIRST=0
         while read LINE; do
           if [ "$FIRST" -ne 0 ]; then
             aws lightsail delete-container-image --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --image $LINE;
           fi
         FIRST=1;
-        done <<< $IMAGES
+        done <<< "$IMAGES"
 
 #    - name: Publish image to AWS Lightsail
 #      shell: bash

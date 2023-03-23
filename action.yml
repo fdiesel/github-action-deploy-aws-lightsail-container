@@ -50,7 +50,7 @@ runs:
         sudo chmod +x /usr/local/bin/lightsailctl
 
     - name: Clear Container Images
-      if: ${{ always && inputs.aws-lightsail-clear-images == 'true' }}
+      if: ${{ inputs.aws-lightsail-clear-images }} == 'true'
       shell: bash
       run: |
         AWS_IMAGES=$(aws lightsail get-container-images --region ${{ inputs.aws-region }} --service-name ${{ inputs.aws-lightsail-service }} --output text)
